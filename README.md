@@ -1,6 +1,6 @@
 # fast-n-clean-X11-logout
 is a DIY manual for convenient, fast and graceful logout/restart/reboot of your machine.
-Tested with openbox wm on ArchLinux _without_ graphical login manager (startx straight into wm). Amend it to make it work with your setup
+Tested with [openbox](http://openbox.org) wm on [ArchLinux](https://www.archlinux.org/) _without_ graphical login manager (startx straight into wm). Amend it to make it work with your setup
 
 # logout script
 Amend for logout/reboot/shutdown.
@@ -24,7 +24,7 @@ cat .config/openbox/menu.xml
 ```xml
 <item label="Reboot">
 	<action name="Execute">
-		<command>/home/leo/bin/reboot-gracefully</command>
+		<command>/home/<username>/bin/reboot-gracefully</command>
 	</action>
 </item>
 ```
