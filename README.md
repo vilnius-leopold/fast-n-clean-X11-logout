@@ -1,8 +1,12 @@
 # fast-n-clean-X11-logout
 is a DIY manual for convenient, fast and graceful logout/restart/reboot of your machine.
 Tested with [openbox](http://openbox.org) wm on [ArchLinux](https://www.archlinux.org/) _without_ graphical login manager (startx straight into wm). Amend it to make it work with your setup
+## Setup
+1. __create logout script__: install dependencies, write script(s), make executable, add action to menu
+2. __amend .xinitrc__: if necessary remove `exec`, add logout status handler
+3. __set sudo permissions__: allow your user to shutdown/reboot your machine without root permissions
 
-# logout script
+### 1. logout script
 Amend for logout/reboot/shutdown.
 Requires [close-all-windows](https://github.com/vilnius-leopold/close-all-windows).
 
@@ -29,7 +33,7 @@ cat .config/openbox/menu.xml
 </item>
 ```
 
-# .xinitrc
+### 2. .xinitrc
 Add to .xinitrc
 ```sh
 # IMPORTANT: do NOT use `exec`
@@ -55,7 +59,7 @@ if [ "$LOGOUT_STATUS" == "SHUTDOWN" ]; then
 fi
 ```
 
-# sudo permissions
+### 3. sudo permissions
 Setup sudo to shutdown/reboot machine without root permissions
 ```
 Cmnd_Alias POWER = /usr/bin/reboot, /usr/bin/shutdown -h now
